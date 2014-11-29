@@ -1,0 +1,35 @@
+<div class="page" data-ng-controller="TestCtrl as vm">
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Blank Page</strong></div>
+        <div class="panel-body">
+            <form name="form_test" class="form-horizontal form-validation" data-ng-submit="vm.test()">
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="">Gift Card Number</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text"  class="form-control" ng-model="vm.testinput">
+                        </div>
+                    </div>
+                    <!-- button here -->
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <!-- modal -->
+         <script type="text/ng-template" id="testModalContent.html">
+            <div class="modal-header bg-danger">
+                <h3><span class="glyphicon glyphicon-warning-sign"></span> Cmon!</h3>
+            </div>
+            <div class="modal-body">
+                <h3>Card Not Valid</h3>
+                <p>Card not valid due to blah blah blah ...</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok()">OK</button>
+            </div>
+          </script>
+        <!-- end modal -->
+</div>

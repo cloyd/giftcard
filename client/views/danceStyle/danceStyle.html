@@ -1,0 +1,82 @@
+<div class="page" data-ng-controller="DanceStyleCtrl as vm">
+    <div class="row">
+        <!-- form -->
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Dance Style/Genre</strong></div>
+                <div class="panel-body">
+                    <form name="form_danceStyle" class="form-horizontal form-validation" data-ng-submit="vm.addDanceStyle()">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-sm-3">
+                                    <label for="">Dance Style</label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text"
+                                           class="form-control"
+                                           required
+                                           data-ng-model="vm.d">
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                    class="btn btn-success btn-w-md"
+                                    >Add
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <!-- end form -->
+
+        <!-- dance style table -->
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Table</strong></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Dance Style</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="danceStyle in vm.danceStyles">
+                                <td>{{danceStyle.id}}</td>
+                                <td>{{danceStyle.name}}</td>
+                                <td>
+                                    <button class="btn btn-danger"
+                                            ng-click="vm.deleteDanceStyle(danceStyle.id)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                 </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <!-- end dance style -->
+
+
+        <!-- modal -->
+        <script type="text/ng-template" id="danceStyleModalContent.html">
+              <div class="modal-header bg-danger">
+                  <h3>Delete Dance Genre Confirmation</h3>
+              </div>
+              <div class="modal-body">
+
+                <h4>Are you sure you want to delete {{vm.danceStyle.name}}?</h4>
+
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" ng-click="ok()">Yes</button>
+                <button class="btn btn-warning" ng-click="cancel()">No</button>
+              </div>
+        </script>
+        <!-- end modal -->
+    </div>
+</div>

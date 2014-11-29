@@ -1,0 +1,49 @@
+<div class="page page-form" data-ng-controller="NewGiftcardCtrl as vm">
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> New Giftcard</strong></div>
+        <div class="panel-body">
+            <h4>Select {{vm.label}}</h4>
+            <div class="row" data-ng-hide="vm.hideMe">
+                <div class="col-md-3 col-xsm-6" ng-repeat="package in vm.packages">
+                        <section class="pricing-table pricing-table-{{package.color}}">
+                            <header>{{package.name}}</header>
+                            <div class="pricing-body">
+                                <div class="pricing-price">
+                                    <strong>
+                                    Php {{package.amount}} for {{package.no_of_class}} Classes
+                                    </strong>
+                                </div>
+                                <ul>
+                                    <li>{{package.no_of_class}} Classes</li>
+                                    <li>Good for {{package.expiration}} Days</li>
+                                </ul>
+                            </div>
+                            <footer>
+                                <!-- <a ng-href="#/giftcardDetail/{{package.id}}" class="btn btn-success" ng-click="">
+                                Select Package
+                                </a> -->
+                                 <a ng-click="vm.selectGiftcard(package.id)" class="btn btn-{{package.color}}">
+                                Select Package
+                                </a>
+                            </footer>
+                        </section>
+                    </div>
+            </div>
+            <!-- <div class="row" ng-show="vm.showCovers">
+                <div class="col-md-4 col-xsm-6" ng-repeat="cover in vm.covers">
+                        <section class="pricing-table pricing-table-default">
+                            <header>{{cover.name}}</header>
+                            <a ng-click="vm.selectCover(cover.id)" title=""><img ng-src="images/giftcard-cover-photo/{{cover.photo}}.jpg" alt="{{cover.name}}"></a>
+                             <footer>
+                                 <a ng-click="vm.selectCover(cover.id)" class="btn btn-primary">
+                                Select Cover Photo
+                                </a>
+                            </footer>
+                        </section>
+                    </div>
+            </div> -->
+
+        </div>
+    </section>
+
+</div>

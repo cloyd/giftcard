@@ -1,0 +1,121 @@
+<div class="page" ng-controller="GiftcardDetailCtrl as vm">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- profile panel -->
+            <div class="panel panel-profile">
+                <div class="panel-heading text-center bg-info">
+                    <h3>{{vm.giftcard.card_number}}</h3>
+                    <p>{{vm.giftcard.student_name}}</p>
+                </div>
+                <div class="list-justified-container">
+                    <ul class="list-justified text-center">
+                        <li>
+                            <p class="size-h4">
+                            {{vm.giftcard.date_purchase | date:'mediumDate'}}
+                            </p>
+                            <p class="text-muted">Date Purchase</p>
+                        </li>
+                        <li>
+                            <p class="size-h4 color-info">
+                                {{vm.giftcard.date_activated | date:'mediumDate'}}
+                            </p>
+                            <p class="text-muted">Date Activated</p>
+                        </li>
+                        <li>
+                            <p class="size-h4 color-danger">
+                                {{vm.expiration}}
+                            </p>
+                            <p class="text-muted">Date of Expiration</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end profile panel -->
+
+            <!-- mini box -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-danger">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h3">{{vm.giftcard.package.name}}</p>
+                            <p class="text-muted">Package Name</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-warning">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h3">{{vm.giftcard.package.expiration}}</p>
+                            <p class="text-muted">Days of Card Consumability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-success">
+                            <i class="fa fa-check-square"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h3">{{vm.giftcard.package.no_of_class}}</p>
+                            <p class="text-muted">No. of Classes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-info">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h3">{{vm.giftcard.remaining_class}}</p>
+                            <p class="text-muted">Remaining No. of Classes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end mini box -->
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Classes Attended</strong></div>
+                <div class="panel-body">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Class Name</th>
+                                <th>Teacher</th>
+                                <th>Time</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="giftcardlog in vm.giftcard.giftcardlogs">
+                                <td>{{giftcardlog.id}}</td>
+                                <td>{{giftcardlog.danceclass.dancestyle.name}}</td>
+                                <td>{{giftcardlog.danceclass.teacher.name}}</td>
+                                <td>{{giftcardlog.danceclass.time}}</td>
+                                <td>{{giftcardlog.danceclass.date | date:'mediumDate'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>

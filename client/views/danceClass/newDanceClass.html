@@ -1,0 +1,98 @@
+<div class="page" data-ng-controller="NewDanceClassesCtrl as vm">
+
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> New Dance Class</strong></div>
+        <div class="panel-body" >
+            <form name="form_danceClass" class="form-horizontal form-validation" data-ng-submit="vm.submitForm()">
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="">Dance Style: </label>
+                        </div>
+                        <div class="col-sm-3" data-ng-show="vm.dancestylesLoaded" >
+                            <ui-select ng-model="vm.dancestyle.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+                            <ui-select-match placeholder="Select or search a dance style in the list...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="dancestyle in vm.dancestyles | filter: $select.search">
+                                  <span ng-bind-html="dancestyle.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="">Teacher:</label>
+                        </div>
+                        <div class="col-sm-4" data-ng-show="vm.teachersLoaded">
+                            <ui-select ng-model="vm.teacher.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+                                <ui-select-match placeholder="Select or search a teacher in the list...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="teacher in vm.teachers | filter: $select.search">
+                                      <span ng-bind-html="teacher.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="">Studio:</label>
+                        </div>
+                        <div class="col-sm-4" data-ng-show="vm.teachersLoaded">
+                            <ui-select ng-model="vm.studio.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+                                <ui-select-match placeholder="Select Studio">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="studio in vm.studios | filter: $select.search">
+                                      <span ng-bind-html="studio.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="">Time: </label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   data-ng-model="vm.classTime">
+                        </div>
+                    </div>
+
+                            <!-- <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="">Time:</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div ng-model="vm.mytime" ng-change="vm.changed()" style="">
+                                        <timepicker class="ui-timepicker" hour-step="vm.hstep" minute-step="vm.mstep" show-meridian="vm.ismeridian"></timepicker>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <br><br><p>To</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div ng-model="vm.mytime2" ng-change="vm.changed()" style="">
+                                        <timepicker class="ui-timepicker" hour-step="vm.hstep" minute-step="vm.mstep" show-meridian="vm.ismeridian"></timepicker>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                    <button type="submit"
+                            class="btn btn-success btn-w-md"
+                            >Submit</button>
+                    <div class="callout callout-info">
+                        <p>Submit button will be active only when all fields are valid.</p>
+                        <p>Revert button will be active only when one or more fields is changed.</p>
+                    </div>
+
+                    <div class="divider"></div>
+                    <div class="alert alert-info" data-ng-show="vm.showInfoOnSubmit">
+                        <p>{{ vm.dancestyle.selected.name}} by {{vm.teacher.selected.name}}</p>
+                        <p>Studio {{vm.studio.selected.id}}</p>
+                        <p>{{vm.time}}</p>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,174 @@
+<div class="page" data-ng-controller="DanceClassesCtrl as vm">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading">
+            <strong><span class="glyphicon glyphicon-th"></span>
+            Dance Classes
+            </strong>
+        </div>
+
+        <div class="table-filters">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <form>
+                        <input type="text"
+                               placeholder="Search..."
+                               class="form-control"
+                               data-ng-model="vm.searchKeywords"
+                               data-ng-keyup="vm.search()">
+                    </form>
+                </div>
+                <div class="col-sm-3 col-xs-6 filter-result-info">
+                    <span>
+                        Showing {{vm.filteredDanceClasses.length}}/{{vm.danceClasses.length}} entries
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th><div class="th">
+                        Class No.
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('name') "
+                              data-ng-class="{active: row == 'name'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" vm.order('-name') "
+                              data-ng-class="{active: row == '-name'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Dance Class
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" vm.order('price') "
+                              data-ng-class="{active: row == 'price'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" vm.order('-price') "
+                              data-ng-class="{active: row == '-price'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Teacher
+                        <span class="fa fa-angle-up"
+                              data-ng-click="vm.order('vm.teacher') "
+                              data-ng-class="{active: row == 'vm.teacher'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-vm.teacher') "
+                              data-ng-class="{active: row == '-vm.teacher'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Studio
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                     <th><div class="th">
+                        Time
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Date
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Actions
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="danceClass in vm.currentPageDanceClasses">
+                    <td>{{danceClass.id}}</td>
+                    <td>{{danceClass.dancestyle.name}}</td>
+                    <td>{{danceClass.teacher.name}}</td>
+                    <td>{{danceClass.studio.id}}</td>
+                    <td>{{danceClass.time }}</td>
+                    <td>{{danceClass.date | date:'mediumDate' }}</td>
+                    <td>
+                      <button class="btn btn-primary"
+                      ng-click="vm.timeIn(danceClass.id)">
+                        <span class="glyphicon glyphicon-check"></span>
+                        Time In
+                     </button>
+                     <button class="btn btn-info"
+                      ng-click="vm.editDanceClass(danceClass.id)">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        Edit
+                     </button>
+                     <button class="btn btn-danger"
+                      ng-click="vm.cancelDanceClass(danceClass.id)"
+                      ng-disabled="{{danceClass.giftcardlogs != 0}}"
+                      tooltip-placement="right" tooltip="Cancel Class" tooltip-append-to-body="true">
+                        <span class="glyphicon glyphicon-off"></span>
+                       <!--    Cancel -->
+                     </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show
+                        <select data-ng-model="vm.numPerPage"
+                                data-ng-options="num for num in vm.numPerPageOpt"
+                                data-ng-change="vm.onNumPerPageChange()">
+                        </select>
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <pagination class="pagination-sm"
+                                ng-model="vm.currentPage"
+                                total-items="vm.filteredDanceClasses.length"
+                                max-size="4"
+                                ng-change="select(vm.currentPage)"
+                                items-per-page="vm.numPerPage"
+                                rotate="false"
+                                previous-text="&lsaquo;" next-text="&rsaquo;"
+                                boundary-links="true">
+                    </pagination>
+                </div>
+            </div>
+        </footer>
+
+          <!-- modal -->
+        <script type="text/ng-template" id="cancelDanceClassModalContent.html">
+              <div class="modal-header bg-danger">
+                  <h3>Cancel Class Confirmation</h3>
+              </div>
+              <div class="modal-body">
+
+                <h4>Are you sure you want to cancel this class?</h4>
+
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" ng-click="ok()">Yes</button>
+                <button class="btn btn-warning" ng-click="cancel()">No</button>
+              </div>
+        </script>
+        <!-- end modal -->
+
+    </section>
+
+</div>

@@ -1,0 +1,69 @@
+
+<div class="nav-wrapper">
+    <ul id="nav"
+        class="nav"
+        data-ng-controller="NavCtrl"
+        data-slim-scroll
+        data-collapse-nav
+        data-highlight-active>
+        <li><a ui-sref="dash"> <i class="fa fa-dashboard"></i><span data-i18n="Dashboard"></span> </a></li>
+        <li>
+        <li><a href="#/danceClasses"> <i class="fa fa-music"></i><span data-i18n=" Dance Classes"></span> </a>
+             <ul>
+                <li><a ui-sref="newDanceClass"><i class="fa fa-angle-right"></i>
+                    <span data-i18n="Create New"></span>
+                    </a>
+                </li>
+                <li><a ui-sref="danceClasses"><i class="fa fa-angle-right"></i>
+                    <span data-i18n="Dance Classes"></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li><a href="#/giftcard"> <i class="fa fa-gift"></i><span data-i18n="Giftcard"></span> </a>
+             <ul>
+                <li><a ui-sref="newGiftcard"><i class="fa fa-angle-right"></i>
+                    <span data-i18n="Create New"></span>
+                    </a>
+                </li>
+                <li><a ui-sref="showGiftcards"><i class="fa fa-angle-right"></i>
+                    <span data-i18n=" Giftcards"></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#/teachers"> <i class="fa fa-user"></i><span data-i18n="Teacher"></span> </a>
+             <ul>
+                <li><a ui-sref="newTeacher"><i class="fa fa-angle-right"></i>
+                    <span data-i18n="Add New Teacher"></span>
+                    </a>
+                </li>
+                <li><a ui-sref="teachers"><i class="fa fa-angle-right"></i>
+                    <span data-i18n=" Teachers"></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li><a ui-sref="danceStyle"> <i class="fa fa-star"></i><span data-i18n="Dance Genre"></span> </a></li>
+
+        <li class="nav-task">
+            <a ui-sref="tasks">
+                <i class="fa fa-tasks"></i><span data-i18n="Tasks"></span>
+                <span class="badge badge-danger main-badge"
+                      data-ng-show="taskRemainingCount > 0">{{taskRemainingCount}}</span>
+            </a>
+        </li>
+        <li><a ui-sref="reports"> <i class="fa fa-bar-chart-o"></i><span data-i18n="Reports"></span> </a>
+            <ul>
+                <li><a ui-sref="reports"><i class="fa fa-angle-right"></i>
+                    <span data-i18n="Daily Report"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li><a ui-sref="testPage"> <i class="fa fa-dashboard"></i><span data-i18n="Test Page"></span> </a></li>
+        <li><a ui-sref="testPage"> <i class="fa fa-user"></i><span data-i18n="Students"></span> </a></li>
+    </ul>
+</div>

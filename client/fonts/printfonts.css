@@ -1,0 +1,57 @@
+/*for printing*/
+
+
+@font-face {
+    font-family: "barcode";
+    src: url("3OF9_NEW.ttf") format("truetype");
+    font-weight: normal;
+  font-style: normal;
+}
+    p.bar-code{
+        position: absolute;
+        top:-9px;
+        left: 145px;
+        font-family: "barcode";
+        font-size: 21pt;
+    }
+    p.card-number{
+        position: absolute;
+        top: 35px;
+        left: 240px;
+        font-size: 4pt;
+    }
+    p.no-of-class{
+        position: absolute;
+        top: 47px;
+        left: 62px;
+        font-size: 10pt;
+        font-weight: 600;
+        color: #444;
+    }
+    p.no-of-days{
+        position:absolute;
+        top: 47px;
+        left: 115px;
+        font-size: 10pt;
+        font-weight: 600;
+        color: #444;
+
+    }
+    p.date-purchase{
+        position: absolute;
+        top: 116px;
+        left: 115px;
+        font-size: 9px;
+
+    }
+    p.date-expiration{
+        position: absolute;
+        top: 116px;
+        left: 220px;
+        font-size: 7pt;
+
+    }
+
+
+
+

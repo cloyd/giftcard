@@ -1,0 +1,169 @@
+
+<div class="page page-table" data-ng-controller="GiftcardCtrl as vm">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading">
+            <strong><span class="glyphicon glyphicon-th"></span>
+            Giftcards
+            </strong>
+        </div>
+
+        <div class="table-filters">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <form>
+                        <input type="text"
+                               placeholder="Search..."
+                               class="form-control"
+                               data-ng-model="vm.searchKeywords"
+                               data-ng-keyup="vm.search()">
+                    </form>
+                </div>
+                <div class="col-sm-3 col-xs-6 filter-result-info">
+                    <span>
+                        Showing {{vm.filteredGiftcards.length}}/{{vm.giftcards.length}} entries
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th><div class="th">
+                        Giftcard No.
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" vm.order('name') "
+                              data-ng-class="{active: row == 'name'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" vm.order('-name') "
+                              data-ng-class="{active: row == '-name'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Student Name
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" vm.order('price') "
+                              data-ng-class="{active: row == 'price'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" vm.order('-price') "
+                              data-ng-class="{active: row == '-price'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Package
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                     <th><div class="th">
+                        No. of Classes
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Remaining no. of Classes
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Validity
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Actions
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="giftcard in vm.currentPageGiftcards">
+                    <td>
+                      <a ng-href="#/giftcards/{{giftcard.id}}">
+                        {{giftcard.card_number}}
+                      </a>
+                    </td>
+                    <td>
+                      <a ng-href="#/giftcards/{{giftcard.id}}">
+                        {{giftcard.student_name}}
+                      </a>
+                    </td>
+                    <td>{{giftcard.package_id}}</td>
+                    <td>{{giftcard.package.no_of_class}}</td>
+                    <td>{{giftcard.remaining_class}}</td>
+                    <td>{{giftcard.validity | date:'mediumDate' }}</td>
+                    <td>
+                     <button class="btn btn-primary"
+                      ng-show="{{giftcard.active === 1}}"
+                      ng-click="vm.activateGiftcard(giftcard.id)">
+                        <span class="glyphicon glyphicon-ok"></span> Activate
+                     </button>
+                     <p ng-show="{{giftcard.active === 0 }}">Activated</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show
+                        <select data-ng-model="vm.numPerPage"
+                                data-ng-options="num for num in vm.numPerPageOpt"
+                                data-ng-change="vm.onNumPerPageChange()">
+                        </select>
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <pagination class="pagination-sm"
+                                ng-model="vm.currentPage"
+                                total-items="vm.filteredGiftcards.length"
+                                max-size="4"
+                                ng-change="vm.select(vm.currentPage)"
+                                items-per-page="vm.numPerPage"
+                                rotate="false"
+                                previous-text="&lsaquo;" next-text="&rsaquo;"
+                                boundary-links="true">
+                    </pagination>
+                </div>
+            </div>
+        </footer>
+
+         <script type="text/ng-template" id="studentnameModalContent.html">
+              <div class="modal-header">
+                  <h3>Please input Student name {{items}}</h3>
+              </div>
+              <div class="modal-body">
+
+                <input type="text" class="form-control" placeholder="student name" ng-model="studentname">
+
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary" ng-click="ok()">OK</button>
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+              </div>
+          </script>
+    </section>
+
+</div>

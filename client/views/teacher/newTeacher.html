@@ -1,0 +1,61 @@
+<div class="page" data-ng-controller="NewTeacherCtrl as vm">
+    <div class="row">
+        <!-- form -->
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <div class="panel-heading">
+                    <strong><span class="glyphicon glyphicon-th"></span> Add New Teachers</strong>
+                </div>
+                <div class="panel-body">
+                    <form name="form_teacher" class="form-horizontal form-validation" data-ng-submit="vm.testAdd()">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="">Teacher</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text"
+                                           class="form-control"
+                                           required
+                                           data-ng-model="vm.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="">Profile Picture</label>
+                                </div>
+                                <div class="col-md-5">
+                                  <input type="file" class="form-control" title="Choose Photo" data-ui-file-upload class="btn-info" data-ng-model="vm.pic">
+                                </div>
+                            </div>
+                            <button type="submit"
+                                    class="btn btn-success btn-w-md"
+                                    >Add
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <!-- end form -->
+
+        <!-- dance style table -->
+        <div class="col-md-6">
+             <section class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Teacher's List</strong></div>
+                <div class="panel-body ui-map" data-slim-scroll data-scroll-height="500px">
+                    <div class="media " data-ng-repeat="teacher in vm.teachers" >
+                        <a class="pull-left">
+                            <img alt="" ng-src="images/teachers/{{teacher.profile_pic}}.jpg" class="img-rounded img64_64">
+                        </a>
+                        <div class="media-body" >
+                            <h4 class="media-heading">{{teacher.name}}</h4>
+                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce cfelis in faucibus.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- end dance style -->
+    </div>
+</div>
