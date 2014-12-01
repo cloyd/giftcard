@@ -98,6 +98,10 @@
               url: "/reports",
               templateUrl: "views/reports/dailyReport.html"
             })
+            .state('studio',{
+              url:"/studio",
+              templateUrl: "views/studio/studio.html"
+            })
             .state('testPage', {
               url: "/testPage",
               templateUrl: "views/testPage.html"

@@ -15,6 +15,18 @@
       // time picker
       vm.class_time = '';
       vm.danceClass_time = '';
+      vm.classTimes = [
+        {time:'1:30 - 2:30'},
+        {time:'2:30 - 3:30'},
+        {time:'3:30 - 4:30'},
+        {time:'4:30-5:30'},
+        {time:'5:30 - 6:30'},
+        {time:'6:30 - 7:30'},
+        {time:'7:30 - 8:30'},
+        {time:'8:30 - 9:30'},
+        {time:'9:30 - 10:30'},
+        {time:'9:00 - 10:30'}
+        ];
 
       activate();
 
@@ -50,7 +62,7 @@
           teacher_id : vm.teacher.selected.id,
           studio_id : vm.studio.selected.id,
           date : '',
-          time : vm.classTime
+          time : vm.classTime.selected.time
         }
         vm.showInfoOnSubmit = true;
 
