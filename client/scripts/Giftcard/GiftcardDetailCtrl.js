@@ -24,7 +24,6 @@
             giftcardApi.getGiftcard(id).get().then(function(data){
                 vm.giftcard = data;
                 var dateActivated = vm.giftcard.date_activated
-                alert(dateActivated);
 
                 dateActivated = moment().add(vm.giftcard.package.expiration, 'd');
                 vm.expiration = dateActivated;
