@@ -18,9 +18,18 @@
             getGiftcards();
         }
         function getGiftcards(){
-            giftcardApi.getGiftcards().getList().then(function(data){
-                return vm.giftcards = data;
+            return giftcardApi.getGiftcards().getList().then(function(data){
+                vm.giftcards = data;
+                getProfit(vm.giftcards);
             })
+
+
+        }
+
+        function getProfit(giftcards){
+            for (var i = 0; i < giftcards.length; i++) {
+                vm.profit += Number(giftcards[i].package.amount);
+            };
         }
     }
 })();

@@ -5,6 +5,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "old-style";
+  src: url("../fonts/oldstyle.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "myriad";
+  src: url("../fonts/MyriadPro-BoldCond.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 .page-invoice {
 
@@ -62,38 +76,38 @@
         color: #444;
     }
     p.no-of-class{
+        font-family: "myriad";
         position: absolute;
-        top: 190px;
+        top: 192px;
         left: 354px;
         font-size: 16pt;
-        font-weight: 600;
         color: #444;
 
     }
     p.no-of-days{
+        font-family: "myriad";
         position: absolute;
-        top: 190px;
+        top: 192px;
         left: 461px;
         font-size: 16pt;
-        font-weight: 600;
         color: #444;
 
     }
     p.date-purchase{
+        font-family: "myriad";
         position: absolute;
-        top: 320px;
+        top: 322px;
         left: 460px;
         font-size: 14pt;
-        font-weight: 700;
         color: #444;
 
     }
     p.date-expiration{
+        font-family: "myriad";
         position: absolute;
-        top: 320px;
+        top: 322px;
         left: 679px;
         font-size: 14pt;
-        font-weight: 700;
         color: #444;
     }
     }
