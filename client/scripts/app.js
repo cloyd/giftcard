@@ -18,7 +18,8 @@
 
       uiSelectConfig.theme = 'selectize';
 
-      RestangularProvider.setBaseUrl('http://giftcard:8888/public/api/v1/');
+      // RestangularProvider.setBaseUrl('http://giftcard:8888/public/api/v1/');
+      RestangularProvider.setBaseUrl('http://giftcard-api.gforceofficial.com/public/api/v1/');
 
       RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
           var extractedData;
