@@ -33,7 +33,8 @@
     "flot.tooltip": "~0.7.0",
     "angular-ui-router": "~0.2.11",
     "selectize": "~0.8.5",
-    "moment": "~2.8.4"
+    "moment": "~2.8.4",
+    "bootstrap-material-design": "~0.2.0"
   },
   "devDependencies": {
     "holderjs": "~2.3.1",
