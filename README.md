@@ -1,4 +1,4 @@
 giftcard
 ========
 
-giftcard is a small web based application using angularJS
+giftcard is a small web application using angularJS
