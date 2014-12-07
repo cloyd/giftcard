@@ -35,48 +35,68 @@
 
       // Routing
 
-          $stateProvider
+           $stateProvider
 
             // setup an abstract state for the tabs directive
             .state('dash', {
               url: "/dashboard",
-              templateUrl: "views/dashboard.html"
+              templateUrl: "views/dashboard.html",
+              controller: "DashboardCtrl",
+              controllerAs: "vm"
             })
-            .state('showGiftcards', {
+            .state('giftcards', {
               url: "/giftcards",
-              templateUrl: "views/giftcards/showGiftcards.html"
+              templateUrl: "views/giftcards/giftcards.html",
+              controller: "GiftcardCtrl",
+              controllerAs: "vm"
             })
             .state('giftcardDetail', {
               url: "/giftcards/:id",
-              templateUrl: "views/giftcards/giftcardDetail.html"
+              templateUrl: "views/giftcards/giftcardDetail.html",
+              controller: "GiftcardDetailCtrl",
+              controllerAs: "vm"
             })
             .state('newGiftcard', {
               url: "/newGiftcard",
-              templateUrl: "views/giftcards/newGiftcard.html"
+              templateUrl: "views/giftcards/newGiftcard.html",
+              controller: "NewGiftcardCtrl",
+              controllerAs: "vm"
             })
             .state('newGiftcardDetail', {
               url: "/newGiftcardDetail/:id",
-              templateUrl: "views/giftcards/newGiftcardDetail.html"
+              templateUrl: "views/giftcards/newGiftcardDetail.html",
+              controller: "NewGiftcardDetailCtrl",
+              controllerAs: "vm"
             })
             .state('newDanceClass', {
               url: "/newDanceClass",
-              templateUrl: "views/danceClass/newDanceClass.html"
+              templateUrl: "views/danceClass/newDanceClass.html",
+              controller: "NewDanceClassesCtrl",
+              controllerAs: "vm"
             })
             .state('danceClasses', {
               url: "/danceClasses",
-              templateUrl: "views/danceClass/danceClasses.html"
+              templateUrl: "views/danceClass/danceClasses.html",
+              controller: "DanceClassesCtrl",
+              controllerAs: "vm"
             })
             .state('danceClassDetail',{
               url: "/danceClass/:id",
-              templateUrl: "views/danceClass/danceClassDetail.html"
+              templateUrl: "views/danceClass/danceClassDetail.html",
+              controller: "DanceClassDetailCtrl",
+              controllerAs: "vm"
             })
             .state('editDanceClass',{
               url: "/editDanceClass/:id",
-              templateUrl: "views/danceClass/editDanceClass.html"
+              templateUrl: "views/danceClass/editDanceClass.html",
+              controller: "EditDanceClassCtrl",
+              controllerAs: "vm"
             })
             .state('danceStyle',{
               url: "/danceStyle",
-              templateUrl: "views/danceStyle/danceStyle.html"
+              templateUrl: "views/danceStyle/danceStyle.html",
+              controller: "DanceStyleCtrl",
+              controllerAs: "vm"
             })
             .state('teachers',{
               url: "/teachers",
@@ -84,7 +104,9 @@
             })
             .state('newTeacher',{
               url: "/newTeacher/",
-              templateUrl: "views/teacher/newTeacher.html"
+              templateUrl: "views/teacher/newTeacher.html",
+              controller: "NewTeacherCtrl",
+              controllerAs: "vm"
             })
             .state('tasks', {
               url: "/tasks",
@@ -92,7 +114,9 @@
             })
             .state('printGiftcard', {
               url: "/printGiftcard/:id",
-              templateUrl: "views/giftcards/testPrint.html"
+              templateUrl: "views/giftcards/printGiftcard.html",
+              controller: "PrintGiftcardCtrl",
+              controllerAs: "vm"
             })
             .state('reports',{
               url: "/reports",
@@ -100,13 +124,18 @@
             })
             .state('studio',{
               url:"/studio",
-              templateUrl: "views/studio/studio.html"
+              templateUrl: "views/studio/studio.html",
+              controller: "StudioCtrl",
+              controllerAs: "vm"
             })
             .state('testPage', {
               url: "/testPage",
               templateUrl: "views/testPage.html"
             })
-
+            .state('testPage-material', {
+              url: "/testPage-material",
+              templateUrl: "views/testviews/material.html"
+            })
 
 
             .state('404', {

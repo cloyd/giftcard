@@ -38,6 +38,10 @@
             <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
             <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
             <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.default.css">
+
+
+            <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css">
+        <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css">
             <!-- endbuild -->
 
     </head>
@@ -128,9 +132,17 @@
         <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.usa.js"></script>
         <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.europe.js"></script>
         <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+
+
+
+
+        <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+        <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) scripts/app.js -->
+
+
         <script src="scripts/app.js"></script>
 
         <script src="scripts/Services/giftcardApi.js"></script>
@@ -193,5 +205,11 @@
 
 
         <!-- endbuild -->
+
+         <script>
+            $(document).ready(function() {
+                $.material.init();
+            });
+        </script>
     </body>
 </html>
