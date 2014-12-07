@@ -1,3 +1,25 @@
+@font-face {
+  font-family: "bar-code";
+  src: url("../fonts/3OF9_NEW.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "old-style";
+  src: url("../fonts/oldstyle.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "myriad";
+  src: url("../fonts/MyriadPro-BoldCond.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 .page-invoice {
 
     .invoice-wrapper {
@@ -6,7 +28,6 @@
     }
 
 }
-
 .invoice-inner {
     padding: 15px 15px 30px;
     background-color: $reverse;
@@ -32,9 +53,62 @@
         }
     }
 }
+@media screen{
+    .giftcardId-inner{
+    background-image: url('../images/giftcard/gc_blank.jpg');
+    width: 585px;
+    height: 390px;
 
+     p.bar-code{
+        position: absolute;
+        top: 81px;
+        left: 512px;
+        font-family: "bar-code";
+        font-size: 45pt;
+        color: #444;
 
+    }
+    p.card-number{
+        position: absolute;
+        top: 146px;
+        left: 717px;
+        font-size: 8pt;
+        color: #444;
+    }
+    p.no-of-class{
+        font-family: "myriad";
+        position: absolute;
+        top: 192px;
+        left: 354px;
+        font-size: 16pt;
+        color: #444;
 
+    }
+    p.no-of-days{
+        font-family: "myriad";
+        position: absolute;
+        top: 192px;
+        left: 461px;
+        font-size: 16pt;
+        color: #444;
 
+    }
+    p.date-purchase{
+        font-family: "myriad";
+        position: absolute;
+        top: 322px;
+        left: 460px;
+        font-size: 14pt;
+        color: #444;
 
-
+    }
+    p.date-expiration{
+        font-family: "myriad";
+        position: absolute;
+        top: 322px;
+        left: 679px;
+        font-size: 14pt;
+        color: #444;
+    }
+    }
+}

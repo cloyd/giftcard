@@ -7,6 +7,13 @@
     font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "myriad-";
+  src: url("MyriadPro-BoldCond.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
     p.bar-code{
         position: absolute;
         top:-9px;
@@ -22,6 +29,7 @@
     }
     p.no-of-class{
         position: absolute;
+        font-family: "myriad-";
         top: 47px;
         left: 62px;
         font-size: 10pt;
@@ -29,6 +37,7 @@
         color: #444;
     }
     p.no-of-days{
+        font-family: "myriad-";
         position:absolute;
         top: 47px;
         left: 115px;
@@ -38,6 +47,7 @@
 
     }
     p.date-purchase{
+        font-family: "myriad-";
         position: absolute;
         top: 116px;
         left: 115px;
@@ -45,6 +55,7 @@
 
     }
     p.date-expiration{
+        font-family: "myriad-";
         position: absolute;
         top: 116px;
         left: 220px;
