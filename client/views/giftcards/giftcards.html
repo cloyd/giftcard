@@ -112,11 +112,11 @@
                     <td>{{giftcard.validity | date:'mediumDate' }}</td>
                     <td>
                      <button class="btn btn-primary"
-                      ng-show="{{giftcard.active === '1' || '1'}}"
+                      ng-show="{{giftcard.active === '1' || giftcard.active ===  1}}"
                       ng-click="vm.activateGiftcard(giftcard.id)">
                         <span class="glyphicon glyphicon-ok"></span> Activate
                      </button>
-                     <p ng-show="{{giftcard.active === '0' || 0 }}">Activated</p>
+                     <p ng-show="{{giftcard.active === '0' || giftcard.active ===  0}}">Activated</p>
                     </td>
                 </tr>
             </tbody>
